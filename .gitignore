@@ -1,0 +1,14 @@
+# Python Virtual Environment
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.cpython-*.pyc
+pyvenv.cfg
+
+# Node.js Dependencies
+/frontend/node_modules/
+
+# Operating System Files (General Clean-up)
+.DS_Store
+Thumbs.db
