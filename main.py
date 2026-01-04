@@ -1,10 +1,28 @@
 from fastapi import FastAPI, Depends
 import database
+from fastapi.middleware.cors import CORSMiddleware
 from models import habit
 from database import session
 import database_model
 from sqlalchemy.orm import Session
+
 app = FastAPI()
+
+
+origins = ["http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    # The list of origins that are allowed to make requests
+    allow_origins=origins, 
+    # Allows all methods (GET, POST, PUT, DELETE, etc.)
+    allow_methods=["*"], 
+    # Allows all headers in the request
+    allow_headers=["*"],
+    # Allows credentials (like cookies or HTTP authentication) to be included in the request
+    allow_credentials=True 
+)
 
 database_model.Base.metadata.create_all(bind=database.engine)
 
